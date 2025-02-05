@@ -1,0 +1,9 @@
+---
+- name: Loop 50 times with debug and sleep
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Sleep for 1 second
+      ansible.builtin.pause:
+        seconds: 1
+      with_items: "{{ range(1, 51) | list }}"
